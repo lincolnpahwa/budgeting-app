@@ -1,0 +1,27 @@
+<div class="field-group">
+  <label>Transaction Type:</label>
+  {{#power-select
+    options=transactionTypes
+    selected=(get transaction "type")
+    placeholder="Select Type"
+    onchange=(action "selectType") as |transactionType|
+  }}
+    {{transactionType.label}}
+  {{/power-select}}
+</div>
+<div class="field-group">
+  <label>Amount:</label>
+  {{input class="form-input" type="number" min=0 value=(mut (get transaction "amount"))}}
+</div>
+<div class="field-group">
+  <label>Date:</label>
+  {{input class="form-input" type="date" value=(mut (get transaction "date"))}}
+</div>
+<div class="field-group">
+  <label>Label:</label>
+  {{input class="form-input" type="text" value=(mut (get transaction "label"))}}
+</div>
+
+{{#if isSaveEnabled}}
+  <button class="action-button save" {{action "save" post on="mouseUp"}}>Save</button>
+{{/if}}

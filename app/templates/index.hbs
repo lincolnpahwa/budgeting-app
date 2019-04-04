@@ -1,0 +1,25 @@
+{{outlet}}
+{{#if isAddingTransaction}}
+  {{transactions/add-transaction saveTransaction=(action "onSaveTransaction")}}
+  <button class="action-button cancel" {{action "toggleAddTransaction" post on="mouseUp"}}>Cancel</button>
+
+{{else}}
+  <button class="action-button add-transaction" {{action "toggleAddTransaction" post on="mouseUp"}}>Add Transaction</button>
+{{/if}}
+
+{{#if transactionsFlatList.length}}
+  <div class="transactions">
+    <div class="transactions-header">
+      <div class="item type">Type</div>
+      <div class="item label">Label</div>
+      <div class="item amount">Amount</div>
+      <div class="item date">Date</div>
+      <div class="item amount">Rolling</div>
+    </div>
+    <div class="transactions-list">
+      {{#each transactionsFlatList as |transaction|}}
+        {{transactions/transaction-item transaction=transaction}}
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
