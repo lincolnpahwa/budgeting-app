@@ -1,7 +1,11 @@
-# budgeting-app
+# Budgeting App
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A simple budgeting app.
+
+### Features:
+* Allows users to add transactions -- income and expenses
+* Lists out transactions in chronological order
+* Draws a chart of the net income
 
 ## Prerequisites
 
@@ -15,7 +19,7 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone ` this repository
 * `cd budgeting-app`
 * `yarn install`
 

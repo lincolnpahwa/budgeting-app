@@ -29,7 +29,7 @@ export class Transaction {
     ) {
         this.uuid = v4();
         this.type = type;
-        this.amount = amount;
+        this.amount = parseFloat(amount);
         this.date = date;
         this.label = label || '';
         this.rolling = rolling;
@@ -81,13 +81,15 @@ export function transactionReducer(totalsRow, year) {
     return (map, transaction) => {
         const transactionMonth = transaction.month();
         const transactionYear = transaction.year();
+        const label = `${moment.months(transactionMonth)} ${year}`;
         if (transactionYear === year) {
             map[transactionMonth] = map[transactionMonth] || {
                 total: {
                     type: {
-                        label: `${moment.months(transactionMonth)} ${year}`
+                        label
                     },
                     date: null,
+                    timestamp: moment(`${label}`).endOf('month').valueOf(),
                     amount: 0,
                     category: 'month-row',
                     rolling: 0

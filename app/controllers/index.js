@@ -1,11 +1,13 @@
 import Controller from '@ember/controller';
 import { storageFor } from 'ember-local-storage';
+import moment from 'moment';
 import {
     computed,
     get,
     set
 } from '@ember/object';
-import { 
+import {
+    filter,
     map,
     sort
 } from '@ember/object/computed';
@@ -31,6 +33,7 @@ export default Controller.extend({
                 label: 'Totals'
             },
             date: null,
+            timestamp: moment.now(),
             category: 'totals-row',
             amount: 0,
             rolling: null
@@ -41,6 +44,7 @@ export default Controller.extend({
                 type: {
                     label: transactionYear
                 },
+                timestamp: moment(`${transactionYear}`).endOf('year').valueOf(),
                 date: null,
                 category: 'yearly-totals-row',
                 amount: 0
@@ -76,6 +80,10 @@ export default Controller.extend({
         transactionFlatList.push(totalsRow);
 
         return transactionFlatList;
+    }),
+
+    chartData: filter('transactionsFlatList', function(transaction) {
+        return transaction.category === 'month-row';
     }),
 
     init() {

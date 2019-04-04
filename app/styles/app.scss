@@ -1,6 +1,9 @@
 @import "reset";
 @import "ember-power-select";
 @import "variables";
+@import "transactions";
+@import "add-transactions";
+@import "line-chart";
 
 html {
     max-width: 100%;
@@ -28,46 +31,11 @@ header {
 
 @mixin button() {
     background: $primary;
+    box-shadow: 2px 2px 2px 0px #00000052;
     color: $text-color;
     cursor: pointer;
     padding: 10px 20px;
     text-transform: uppercase;
-}
-
-.add-transaction-component {
-    color: $text-color;
-    padding: 10px;
-
-    label,
-    input {
-        display: block;
-        font-size: 1rem;
-    }
-
-    label {
-        margin: 5px 0;
-        text-transform: uppercase;
-    }
-
-    .ember-power-select-trigger {
-        width: 50%;
-        border-color: $primary;
-        
-        .ember-power-select-status-icon {
-            border-top-color: $primary;
-        }
-    }
-
-    .form-input {
-        border-color: $primary;
-        border-radius: 4px;
-        border-style: solid;
-        border-width: 1px;
-        height: 20px;
-        margin: 10px 0;
-        padding: 5px 10px;
-        width: 50%;
-    }
 }
 
 .action-button {
@@ -81,49 +49,5 @@ header {
 
     &.add-transaction {
         margin: 10px;
-    }
-}
-
-.transactions {
-    padding: 10px;
-    .item {
-        flex: 1;
-        height: 30px;
-        line-height: 30px;
-        padding: 5px 10px;
-
-        &.amount {
-            text-align: right;
-        }
-
-        &.date {
-            min-width: 100px;
-        }
-    }
-
-    .transactions-header {
-        background: $primary;
-        color: $text-color;
-        text-transform: uppercase;
-    }
-
-    .transactions-header,
-    .transaction-item {
-        display: flex;
-    }
-
-    .transaction-item {
-        border-top: 1px solid $text-color;
-
-        &.is-month-row {
-            background: $primary-light;
-        }
-
-        &.is-year-row {
-            background: $primary;
-            border-bottom: 1px solid $text-color;
-            margin: 0 0 10px 0;
-
-        }
     }
 }

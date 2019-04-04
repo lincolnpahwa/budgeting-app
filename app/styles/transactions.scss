@@ -1,0 +1,52 @@
+.transactions {
+    padding: 10px;
+    .item {
+        flex: 1;
+        height: 30px;
+        line-height: 30px;
+        padding: 5px 10px;
+
+        &.amount {
+            text-align: right;
+        }
+
+        &.date {
+            min-width: 100px;
+        }
+    }
+
+    .transactions-header {
+        background: $primary;
+        color: $text-color;
+        text-transform: uppercase;
+    }
+
+    .transactions-list {
+        display: block;
+        max-height: 400px;
+        overflow: auto;
+    }
+
+    .transactions-header,
+    .transaction-item {
+        display: flex;
+    }
+
+    .transaction-item {
+        border-top: 1px solid $text-color;
+
+        &.is-month-row {
+            background: $primary-light;
+        }
+
+        &.is-year-row {
+            background: $primary;
+            border-bottom: 1px solid $text-color;
+            margin: 0 0 10px 0;
+        }
+
+        &.is-totals-row {
+            box-shadow: inset 0px -1px 2px 0 #02020259;
+        }
+    }
+}

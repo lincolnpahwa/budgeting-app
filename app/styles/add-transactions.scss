@@ -1,0 +1,35 @@
+.add-transaction-component {
+    color: $text-color;
+    padding: 10px;
+
+    label,
+    input {
+        display: block;
+        font-size: 1rem;
+    }
+
+    label {
+        margin: 5px 0;
+        text-transform: uppercase;
+    }
+
+    .ember-power-select-trigger {
+        width: 50%;
+        border-color: $primary;
+        
+        .ember-power-select-status-icon {
+            border-top-color: $primary;
+        }
+    }
+
+    .form-input {
+        border-color: $primary;
+        border-radius: 4px;
+        border-style: solid;
+        border-width: 1px;
+        height: 20px;
+        margin: 10px 0;
+        padding: 5px 10px;
+        width: 50%;
+    }
+}
